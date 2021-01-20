@@ -1,0 +1,22 @@
+server:
+  port: 10010
+  servlet:
+    context-path: /server-config
+
+spring:
+  application:
+    name: server-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/20gongzi/demo-project-config.git #配置文件所在仓库
+          default-label: main #配置文件分支
+          search-paths: /**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10101/eureka
+  instance:
+    metadata-map:
+      configPath: ${server.servlet.context-path}

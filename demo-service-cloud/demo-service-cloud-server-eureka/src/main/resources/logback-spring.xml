@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <!-- 定义日志文件存储目录 -->
+  <property name="LOG_HOME" value="/logs"/>
+  <!-- 定义日志文件名称，读取application.yml中应用名称-->
+  <springProperty scope="context" name="LOG_NAME" source="spring.application.name"
+    defaultValue="demo"/>
+
+  <!-- Console 输出设置 -->
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+      <charset>UTF8</charset>
+    </encoder>
+  </appender>
+
+  <!-- 每天滚动生成日志文件 -->
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- 日志文件输出的文件名 -->
+      <fileNamePattern>${LOG_HOME}/${LOG_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+      <!-- 日志保留天数 -->
+      <maxHistory>15</maxHistory>
+      <!-- 日志文件上限大小，达到指定大小后删除旧的日志文件 -->
+      <totalSizeCap>1GB</totalSizeCap>
+      <!-- 每个日志文件的最大值 -->
+      <timeBasedFileNamingAndTriggeringPolicy
+        class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>100MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <!-- 格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+    <!-- 日志文件级别控制，记录INFO级别以上的日志 -->
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+  </appender>
+
+  <!-- 异步输出 -->
+  <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+    <!-- 不丢失日志.默认的，如果队列的80%已满，则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+    <discardingThreshold>0</discardingThreshold>
+    <!-- 更改默认的队列的深度，该值会影响性能.默认值为256 -->
+    <queueSize>512</queueSize>
+    <!-- 添加附加的appender，最多只能添加一个 -->
+    <appender-ref ref="FILE"/>
+  </appender>
+
+  <logger name="org.apache.ibatis.cache.decorators.LoggingCache" level="DEBUG" additivity="false">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+  <!--  <logger name="org.springframework.boot" level="DEBUG"/>-->
+  <root level="INFO">
+    <appender-ref ref="ASYNC"/>
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
