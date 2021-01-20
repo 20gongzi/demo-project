@@ -1,5 +1,5 @@
 server:
-  port: 10010
+  port: 22222
   servlet:
     context-path: /server-config
 
@@ -16,7 +16,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:10101/eureka
+      defaultZone: http://127.0.0.1:11111/eureka
   instance:
     metadata-map:
       configPath: ${server.servlet.context-path}
