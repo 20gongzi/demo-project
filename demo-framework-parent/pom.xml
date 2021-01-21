@@ -24,6 +24,7 @@
     <module>../demo-framework-api</module>
     <module>../demo-service-generator</module>
     <module>../demo-service-cloud</module>
+    <module>../demo-service-rabbitmq</module>
   </modules>
 
   <properties>
