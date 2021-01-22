@@ -3,7 +3,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:11111/eureka
-
 # 服务配置
 spring:
   application:
@@ -17,6 +16,7 @@ spring:
       label: main
       profile: dev
       fail-fast: true
+
 #  URL配置方式
 #  cloud:
 #    config:

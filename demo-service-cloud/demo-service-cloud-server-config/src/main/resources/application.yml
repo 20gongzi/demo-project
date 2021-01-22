@@ -3,7 +3,6 @@ server:
   port: 22222
   servlet:
     context-path: /server-config
-
 # 注册中心
 eureka:
   client:
@@ -12,7 +11,6 @@ eureka:
   instance:
     metadata-map:
       configPath: ${server.servlet.context-path}
-
 # 服务配置
 spring:
   application:
@@ -27,11 +25,10 @@ spring:
           search-paths: /**
   # 消息总线
   rabbitmq:
-    host: 192.168.11.101
+    host: 192.168.11.128
     username: guest
     password: guest
     virtual-host: /
-
 # 安全监控
 management:
   endpoints:
