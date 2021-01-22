@@ -1,0 +1,21 @@
+server:
+  port: 33333
+  servlet:
+    context-path: /client-zuul
+
+spring:
+  application:
+    name: client-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:11111/eureka
+
+zuul:
+  routes:
+    client-provider:
+      path: /client-provider/**
+      serviceId: client-provider
+      strip-prefix: false
+      sensitiveHeaders:

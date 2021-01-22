@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: client-config
+  # 服务配置方式
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: server-config
+      label: main
+      profile: dev
+      fail-fast: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:11111/eureka
+
+#   URL配置方式
+#  cloud:
+#    config:
+#      uri: http://localhost:11111/server-config
+#      name: client-config
+#      label: main
+#      profile: dev
+
