@@ -12,28 +12,6 @@
   <artifactId>demo-service-cloud-server-eureka</artifactId>
 
   <dependencies>
-    <!-- 基础依赖 -->
-    <dependency>
-      <groupId>com.demo</groupId>
-      <artifactId>demo-framework-common</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.demo</groupId>
-      <artifactId>demo-framework-model</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.demo</groupId>
-      <artifactId>demo-framework-util</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.demo</groupId>
-      <artifactId>demo-framework-api</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
 
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -42,6 +20,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
     </dependency>
   </dependencies>
 
