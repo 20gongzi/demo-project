@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
- * com.demo.service.eureka.ServerEurekaApplication
+ * com.demo.service.cloud.server.config.ServerConfigApplication
  *
  * @author gongcheng
  * @date 2021/1/18 13:56
