@@ -34,7 +34,7 @@ public class UserController implements UserControllerApi {
   @ResponseBody
   public UserResponseResult get(@PathVariable Long id) {
 
-    // 基础测试
+//    基础测试
 //    UserDO userDO = new UserDO();
 //    userDO.setId(1L);
 //    userDO.setUsername("xxx");
@@ -44,10 +44,12 @@ public class UserController implements UserControllerApi {
 //    userDO.setUpdateTime(new Date());
 //    return new UserResponseResult(CommonCode.SUCCESS, userDO);
 
-    // ribbon测试
+//    ribbon测试
+//    log.info("consumer is running");
 //    return userServiceRibbon.get(id);
 
-    // feign测试
+//    feign测试
+    log.info("consumer is running");
     return userServiceFeign.get(id);
   }
 }

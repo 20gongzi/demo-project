@@ -1,21 +1,32 @@
-server:
-  port: 33333
-  servlet:
-    context-path: /client-zuul
-
-spring:
-  application:
-    name: client-zuul
-
+# 注册中心
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:11111/eureka
-
+# 基础配置
+server:
+  port: 33333
+  servlet:
+    context-path: /client-zuul
+# 应用配置
+spring:
+  application:
+    name: client-zuul
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://localhost:44444
+# 网关配置
 zuul:
   routes:
     client-provider:
       path: /client-provider/**
       serviceId: client-provider
+      strip-prefix: false
+      sensitiveHeaders:
+    client-consumer:
+      path: /client-consumer/**
+      serviceId: client-consumer
       strip-prefix: false
       sensitiveHeaders:

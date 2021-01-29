@@ -20,6 +20,7 @@
     <module>demo-service-cloud-client-consumer</module>
     <module>demo-service-cloud-client-zuul</module>
     <module>demo-service-cloud-client-config</module>
+    <module>demo-service-cloud-server-zipkin</module>
   </modules>
 
 </project>

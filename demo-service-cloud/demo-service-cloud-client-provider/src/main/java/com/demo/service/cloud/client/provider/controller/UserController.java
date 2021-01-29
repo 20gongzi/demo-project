@@ -27,6 +27,7 @@ public class UserController implements UserControllerApi {
   @GetMapping("{id}")
   @ResponseBody
   public UserResponseResult get(@PathVariable Long id) {
+    log.info("provider is running");
     UserDO userDO = new UserDO();
     userDO.setId(1L);
     userDO.setUsername("xxx@163.com");

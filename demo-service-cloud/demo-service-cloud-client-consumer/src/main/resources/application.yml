@@ -1,13 +1,19 @@
-server:
-  port: 8082
-  servlet:
-    context-path: /client-consumer
-
-spring:
-  application:
-    name: client-consumer
-
+# 注册中心
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:11111/eureka
+# 基础配置
+server:
+  port: 8082
+  servlet:
+    context-path: /client-consumer
+# 应用配置
+spring:
+  application:
+    name: client-consumer
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://localhost:44444
