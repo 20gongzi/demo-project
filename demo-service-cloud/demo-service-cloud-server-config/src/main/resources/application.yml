@@ -3,14 +3,6 @@ server:
   port: 22222
   servlet:
     context-path: /server-config
-# 注册中心
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:11111/eureka
-  instance:
-    metadata-map:
-      configPath: ${server.servlet.context-path}
 # 服务配置
 spring:
   application:
@@ -25,13 +17,22 @@ spring:
           search-paths: /**
   # 消息总线
   rabbitmq:
-    host: 192.168.11.101
+    host: 192.168.11.128
     username: guest
     password: guest
     virtual-host: /
-# 安全监控
+# 注册中心
+eureka:
+  instance:
+    metadata-map:
+      configPath: ${server.servlet.context-path}
+  client:
+    service-url:
+      defaultZone: http://localhost:11111/eureka
+# 监控配置
 management:
   endpoints:
     web:
       exposure:
-        include: refresh,bus-refresh,health,info
+        include: '*'
+        exclude:

@@ -1,22 +1,17 @@
 # 基础配置
 server:
-  port: 44444
+  port: 8083
 # 服务配置
 spring:
   application:
-    name: server-zipkin
+    name: client-admin
 # 注册中心
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:11111/eureka
-# 监控配置
+# 监控断点
 management:
-  metrics:
-    web:
-      server:
-        # 取消自动定时，如果不设置为false，时间序列数量可能会增长过大，导致异常
-        auto-time-requests: false
   endpoints:
     web: # HTTP端点配置
       exposure:

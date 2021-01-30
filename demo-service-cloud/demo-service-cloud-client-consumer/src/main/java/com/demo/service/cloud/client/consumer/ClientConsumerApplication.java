@@ -1,7 +1,5 @@
 package com.demo.service.cloud.client.consumer;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,22 +15,15 @@ import org.springframework.web.client.RestTemplate;
  * @author gongcheng
  * @date 2021/1/18 14:46
  */
-@Slf4j
 @ComponentScan("com.demo.framework.common")
 @ComponentScan("com.demo.service.cloud.client.consumer")
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
-public class ClientConsumerApplication implements CommandLineRunner {
+public class ClientConsumerApplication {
 
   public static void main(String[] args) {
     SpringApplication.run(ClientConsumerApplication.class, args);
-  }
-
-  @Override
-  public void run(String... args) throws Exception {
-    // do something;
-    log.info("application is running-------------------------------------------------------------");
   }
 
   @Bean

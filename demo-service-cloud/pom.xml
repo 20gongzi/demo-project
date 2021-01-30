@@ -21,6 +21,16 @@
     <module>demo-service-cloud-client-zuul</module>
     <module>demo-service-cloud-client-config</module>
     <module>demo-service-cloud-server-zipkin</module>
+    <module>demo-service-cloud-server-admin</module>
+    <module>demo.-service-cloud-client-admin</module>
   </modules>
-
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 </project>

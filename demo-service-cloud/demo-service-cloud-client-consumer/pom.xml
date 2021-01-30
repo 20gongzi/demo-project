@@ -11,7 +11,6 @@
 
   <artifactId>demo-service-cloud-client-consumer</artifactId>
 
-
   <dependencies>
     <!-- 基础依赖 -->
     <dependency>
@@ -57,14 +56,4 @@
       <artifactId>spring-cloud-starter-zipkin</artifactId>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>
