@@ -1,0 +1,35 @@
+# 基础配置
+server:
+  port: 33333
+  servlet:
+    context-path: /client-gateway
+# 应用配置
+spring:
+  application:
+    name: client-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: client-provider # 路由ID
+          # uri: http://localhost:8081 # 指定路径
+          uri: lb://client-provider # 服务发现
+          predicates:
+            - Path=/client-provider/** # 路径相匹配的进行路由(注意**为通配符)
+          filters:
+            - PrefixPath=/client-provider
+# 注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:11111/eureka
+# 监控配置
+management:
+  endpoints:
+    web: # HTTP端点配置
+      exposure:
+        include: "*"
+        exclude:

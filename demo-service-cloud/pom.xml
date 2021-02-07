@@ -23,6 +23,7 @@
     <module>demo-service-cloud-server-zipkin</module>
     <module>demo-service-cloud-server-admin</module>
     <module>demo.-service-cloud-client-admin</module>
+    <module>demo-service-cloud-client-gateway</module>
   </modules>
   
   <build>
