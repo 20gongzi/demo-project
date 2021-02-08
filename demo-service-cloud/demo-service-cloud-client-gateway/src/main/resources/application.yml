@@ -14,13 +14,14 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
+        - id: client-consumer # 路由ID
+          uri: http://localhost:8082 # 指定路径
+          predicates:
+            - Path=/client-consumer/** # 路径相匹配的进行路由(注意**为通配符)
         - id: client-provider # 路由ID
-          # uri: http://localhost:8081 # 指定路径
-          uri: lb://client-provider # 服务发现
+          uri: http://localhost:8081 # 指定路径
           predicates:
             - Path=/client-provider/** # 路径相匹配的进行路由(注意**为通配符)
-          filters:
-            - PrefixPath=/client-provider
 # 注册中心
 eureka:
   client:
